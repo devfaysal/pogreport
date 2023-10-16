@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Region;
+use App\Models\Zone;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Faysal Ahamed',
             'email' => 'faysal@surovigroup.net',
         ]);
+        $this->call(ZonesTableSeeder::class);
+        $this->call(RegionsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
     }
 }

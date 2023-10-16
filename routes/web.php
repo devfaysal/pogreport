@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Region;
+use App\Models\Zone;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('import', function(Request $request){
+    // dd($request->file('csv'));
+    $feed = $request->file('csv')->getPathName();
+    $items = array_map('str_getcsv', file($feed));
+    // dd($items);
+    foreach($items as $key => $item){
+        if($key === 0)continue;
+        // Zone::create([
+        //     'name' => $item[0],
+        //     'phone' => $item[1],
+        // ]);
+        Region::create([
+            'name' => $item[0],
+            'zone_id' => $item[1],
+            'phone' => $item[2],
+        ]);
+    }
+})->name('import');
