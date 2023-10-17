@@ -6,6 +6,7 @@ use App\Filament\Resources\RegionResource\Pages;
 use App\Filament\Resources\RegionResource\RelationManagers;
 use App\Models\Region;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,7 +25,8 @@ class RegionResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name'),
+                TextInput::make('phone'),
             ]);
     }
 

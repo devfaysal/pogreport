@@ -4,6 +4,7 @@ namespace App\Filament\Zone\Resources;
 
 use App\Filament\Zone\Resources\RegionResource\Pages;
 use App\Filament\Zone\Resources\RegionResource\RelationManagers;
+use App\Filament\Zone\Resources\RegionResource\RelationManagers\ProductsRelationManager;
 use App\Models\Region;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -47,19 +48,17 @@ class RegionResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+
             ]);
     }
     
     public static function getRelations(): array
     {
         return [
-            //
+            ProductsRelationManager::class,
         ];
     }
     
@@ -68,7 +67,8 @@ class RegionResource extends Resource
         return [
             'index' => Pages\ListRegions::route('/'),
             'create' => Pages\CreateRegion::route('/create'),
-            'edit' => Pages\EditRegion::route('/{record}/edit'),
+            'view' => Pages\Products::route('/{record}'),
+            // 'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
     }    
 }

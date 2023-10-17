@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone')->nullable();
-            $table->string('password')->default(bcrypt('password'));
+            $table->string('phone')->unique();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

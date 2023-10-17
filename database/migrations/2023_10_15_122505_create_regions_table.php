@@ -16,9 +16,6 @@ return new class extends Migration
             $table->foreignId('zone_id');
             $table->string('name');
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->default(bcrypt('password'));
-            $table->rememberToken();
             $table->timestamps();
         });
     }

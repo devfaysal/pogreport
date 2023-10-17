@@ -3,144 +3,94 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ZonesTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
-     *
-     * @return void
+     * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
+        DB::table('zones')->delete();
         
-
-        \DB::table('zones')->delete();
-        
-        \DB::table('zones')->insert(array (
-            0 => 
-            array (
-                'created_at' => '2023-10-16 03:53:49',
-                'id' => 1,
+        DB::table('zones')->insert([
+            [
                 'name' => 'Banglabandha-Hili',
-                'phone' => '1841145197',
-                'updated_at' => '2023-10-16 03:53:49',
-            ),
-            1 => 
-            array (
-                'created_at' => '2023-10-16 03:53:49',
-                'id' => 2,
+                'phone' => '01841145197',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Kalia-Gomostapur',
-                'phone' => '1841145232',
-                'updated_at' => '2023-10-16 03:53:49',
-            ),
-            2 => 
-            array (
-                'created_at' => '2023-10-16 03:53:49',
-                'id' => 3,
+                'phone' => '01841145232',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Sibgonj-Belkochi',
-                'phone' => '1841145139',
-                'updated_at' => '2023-10-16 03:53:49',
-            ),
-            3 => 
-            array (
-                'created_at' => '2023-10-16 03:53:50',
-                'id' => 4,
+                'phone' => '01841145139',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Bheramera-Alfadanga',
-                'phone' => '1841145115',
-                'updated_at' => '2023-10-16 03:53:50',
-            ),
-            4 => 
-            array (
-                'created_at' => '2023-10-16 03:53:50',
-                'id' => 5,
+                'phone' => '01841145115',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Sundarban-Jazira',
-                'phone' => '1841145136',
-                'updated_at' => '2023-10-16 03:53:50',
-            ),
-            5 => 
-            array (
-                'created_at' => '2023-10-16 03:53:50',
-                'id' => 6,
+                'phone' => '01841145136',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Saturia-Tongibari',
-                'phone' => '44',
-                'updated_at' => '2023-10-16 03:53:50',
-            ),
-            6 => 
-            array (
-                'created_at' => '2023-10-16 03:53:50',
-                'id' => 7,
+                'phone' => '01234567890',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Bakshigonj-Nagorpur',
-                'phone' => '1841145234',
-                'updated_at' => '2023-10-16 03:53:50',
-            ),
-            7 => 
-            array (
-                'created_at' => '2023-10-16 03:53:50',
-                'id' => 8,
+                'phone' => '01841145234',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Dugapur-Norsingdi',
-                'phone' => '44',
-                'updated_at' => '2023-10-16 03:53:50',
-            ),
-            8 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 9,
+                'phone' => '01234567891',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Adampur-Jaintapur',
-                'phone' => '1841145157',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            9 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 10,
+                'phone' => '01841145157',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Laksham-Hatia-Sita',
-                'phone' => '1921196859',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            10 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 11,
+                'phone' => '01921196859',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Panchari-Teknaf',
-                'phone' => '1841145240',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            11 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 12,
+                'phone' => '01841145240',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Patgram-Sonatola',
-                'phone' => '1841145222',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            12 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 13,
+                'phone' => '01841145222',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Kuakata-Babugonj',
-                'phone' => '44',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            13 => 
-            array (
-                'created_at' => '2023-10-16 03:53:51',
-                'id' => 14,
+                'phone' => '01234567892',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Shyamnagar-Lohagore',
-                'phone' => '1841145122',
-                'updated_at' => '2023-10-16 03:53:51',
-            ),
-            14 => 
-            array (
-                'created_at' => '2023-10-16 03:53:52',
-                'id' => 15,
+                'phone' => '01841145122',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            [
                 'name' => 'Nasirnagar-Hayemchar',
-                'phone' => '1844643436',
-                'updated_at' => '2023-10-16 03:53:52',
-            ),
-        ));
-        
-        
+                'phone' => '01844643436',
+                'password' => bcrypt('$upreme$eed'),
+            ],
+            
+        ]);
     }
 }

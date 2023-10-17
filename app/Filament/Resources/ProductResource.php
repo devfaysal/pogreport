@@ -6,6 +6,8 @@ use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,7 +26,13 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name'),
+                Select::make('type')
+                    ->options([
+                        'Hybrid Rice' => 'Hybrid Rice',
+                        'Inbred Rice' => 'Inbred Rice',
+                        'Hybrid Maize' => 'Hybrid Maize',
+                    ]),
             ]);
     }
 

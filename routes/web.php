@@ -18,6 +18,12 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', function () {
+    $zone = Zone::first();
+    $region = $zone->regions->first();
+    $product = $region->products->first();
+    $region->products()->updateExistingPivot($product->id, ['budget' => 50000]);
+
+    dd($region->products->first());
     return view('welcome');
 });
 
