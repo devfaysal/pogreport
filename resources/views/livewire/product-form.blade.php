@@ -1,6 +1,6 @@
 <tr class="border-b">
     <form wire:submit="updateProduct">
-        <td class="text-sm ps-3">
+        <td class="text-sm ps-3 py-3">
             <p class="text-sm">{{ $product->name }}</p>
             <p class="text-xs">{{ $type }}</p>
             <p class="text-xs">Budget: {{ $budget }}</p>

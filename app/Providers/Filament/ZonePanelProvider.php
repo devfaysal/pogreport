@@ -26,6 +26,8 @@ class ZonePanelProvider extends PanelProvider
         return $panel
             ->id('zone')
             ->path('zone')
+            ->brandLogo(asset('sscl_logo.png'))
+            ->brandLogoHeight('4rem')
             ->login(ZoneLogin::class)
             ->authGuard('zone')
             ->colors([
