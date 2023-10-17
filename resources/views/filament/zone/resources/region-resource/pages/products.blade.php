@@ -1,5 +1,8 @@
 <x-filament-panels::page>
     <div>
+        <x-filament::button href="/zone" tag="a" class="mb-2">
+            Back
+        </x-filament::button>
         <table class="w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
             <thead class="bg-gray-50 dark:bg-white/5">
                 <tr class="border-b">

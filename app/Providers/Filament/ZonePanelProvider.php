@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\ZoneLogin;
+use App\Filament\Zone\Widgets\Regions;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -41,7 +42,7 @@ class ZonePanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Zone/Widgets'), for: 'App\\Filament\\Zone\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                Regions::class,
             ])
             ->middleware([
                 EncryptCookies::class,
