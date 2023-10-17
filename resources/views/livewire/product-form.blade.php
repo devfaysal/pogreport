@@ -6,6 +6,7 @@
             <p class="text-xs">Budget: {{ $budget }}</p>
             <p class="text-xs">Placement: {{ $placement }}</p>
             <p class="text-xs">POG: {{ $pog }}</p>
+            <p class="text-xs">Updated: {{ $updated_at }}</p>
         </td>
         <td class="px-3">
             <x-filament::input.wrapper>

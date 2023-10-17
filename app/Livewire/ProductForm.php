@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Region;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class ProductForm extends Component
@@ -15,6 +16,7 @@ class ProductForm extends Component
     public $budget;
     public $placement;
     public $todays_pog;
+    public $updated_at;
 
     public function mount(Region $region, $product)
     {
@@ -26,6 +28,7 @@ class ProductForm extends Component
         $this->budget = $product->pivot->budget;
         $this->placement = $product->pivot->placement;
         $this->pog = $product->pivot->pog;
+        $this->updated_at = $product->pivot->updated_at ? Carbon::parse($product->pivot->updated_at)->diffForHumans() : null;
     }
 
     public function render()
