@@ -14,6 +14,7 @@
                     type="number"
                     wire:model="todays_pog"
                     class="text-xs"
+                    min="1"
                     required
                 />
             </x-filament::input.wrapper>
