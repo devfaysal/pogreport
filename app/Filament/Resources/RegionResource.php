@@ -6,6 +6,7 @@ use App\Filament\Resources\RegionResource\Pages;
 use App\Filament\Resources\RegionResource\RelationManagers;
 use App\Models\Region;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -27,6 +28,8 @@ class RegionResource extends Resource
             ->schema([
                 TextInput::make('name'),
                 TextInput::make('phone'),
+                Select::make('zone_id')
+                    ->relationship(name: 'zone', titleAttribute: 'name'),
             ]);
     }
 
@@ -36,11 +39,13 @@ class RegionResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('phone'),
+                TextColumn::make('zone.name'),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -62,6 +67,7 @@ class RegionResource extends Resource
         return [
             'index' => Pages\ListRegions::route('/'),
             'create' => Pages\CreateRegion::route('/create'),
+            'view' => Pages\ViewRegion::route('/{record}'),
             'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
     }    

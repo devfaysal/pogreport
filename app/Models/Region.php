@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Region extends Model
@@ -15,5 +16,10 @@ class Region extends Model
     public function products():BelongsToMany
     {
         return $this->belongsToMany(Product::class)->withPivot('type', 'budget', 'placement', 'pog')->withTimestamps();
+    }
+
+    public function zone():BelongsTo
+    {
+        return $this->belongsTo(Zone::class);
     }
 }

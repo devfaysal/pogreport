@@ -14,6 +14,6 @@ class Product extends Model
 
     public function regions(): BelongsToMany
     {
-        return $this->belongsToMany(Region::class);
+        return $this->belongsToMany(Region::class)->withPivot('type', 'budget', 'placement', 'pog')->withTimestamps();
     }
 }

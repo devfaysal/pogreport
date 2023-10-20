@@ -6,6 +6,7 @@ use App\Filament\Resources\ZoneResource\Pages;
 use App\Filament\Resources\ZoneResource\RelationManagers;
 use App\Models\Zone;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,7 +27,7 @@ class ZoneResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name'),
-                TextInput::make('phone')
+                TextInput::make('phone'),
             ]);
     }
 
