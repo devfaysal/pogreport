@@ -1,4 +1,4 @@
-<div class="w-full px-3 py-2 ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
+<div class="mt-3 w-full px-3 py-2 ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
     <form wire:submit="updateProduct">
         <p class="text-2xl">{{ $product->name }} </p>
         <div class="flex pt-4">
