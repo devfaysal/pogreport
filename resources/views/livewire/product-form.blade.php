@@ -2,17 +2,17 @@
     <form wire:submit="updateProduct">
         <p class="text-2xl">{{ $product->name }} </p>
         <div class="flex pt-4">
-            <div class="px-4 py-2 border rounded-xl me-1">
-                <p class="font-bold">Budget</p>
-                <p class="text-xs">{{ $budget }} kg</p>
+            <div class="px-2 py-2 border rounded-xl me-1">
+                <p class="font-bold">Budget <span class="text-xs font-normal">(kg)</span></p>
+                <p class="text-sm">{{ $budget }}</p>
             </div>
-            <div class="px-4 py-2 border rounded-xl me-1">
-                <p class="font-bold">Placement</p>
-                <p class="text-xs">{{ $placement }} kg</p>
+            <div class="px-2 py-2 border rounded-xl me-1">
+                <p class="font-bold">Placement <span class="text-xs font-normal">(kg)</span></p>
+                <p class="text-sm">{{ $placement }}</p>
             </div>
-            <div class="px-4 py-2 border rounded-xl">
-                <p class="font-bold">POG</p>
-                <p class="text-xs">{{ $pog }} kg</p>
+            <div class="px-2 py-2 border rounded-xl">
+                <p class="font-bold">POG <span class="text-xs font-normal">(kg)</span></p>
+                <p class="text-sm">{{ $pog }}</p>
             </div>
         </div>
         <div class="flex items-end pt-4">
