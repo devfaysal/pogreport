@@ -1,17 +1,20 @@
 <x-filament-panels::page>
+    <x-filament::tabs label="Content tabs">
+        <x-filament::tabs.item href="?type=Hybrid Rice" tag="a" :active="$type === 'Hybrid Rice'">
+            Hybrid Rice
+        </x-filament::tabs.item>
+        <x-filament::tabs.item href="?type=Inbred Rice" tag="a" :active="$type === 'Inbred Rice'">
+            Inbred Rice
+        </x-filament::tabs.item>
+        <x-filament::tabs.item href="?type=Hybrid Maize" tag="a" :active="$type === 'Hybrid Maize'">
+            Maize
+        </x-filament::tabs.item>
+    </x-filament::tabs>
     <div>
         <x-filament::button href="/zone" tag="a" class="mb-2">
             Back
         </x-filament::button>
         <table class="w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
-            {{-- <thead class="bg-gray-50 dark:bg-white/5">
-                <tr class="border-b">
-                    <th class="text-left text-sm py-4 ps-3">Name</th>
-                    <th class="text-center text-sm" style="width: 120px">
-                    </th>
-                    <th class="text-center text-sm" style="width: 75px"></th>
-                </tr>
-            </thead> --}}
             <tbody>
                 @foreach ($products as $product)
                     @if($product->pivot->budget > 0)

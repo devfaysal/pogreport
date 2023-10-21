@@ -15,12 +15,14 @@ class Products extends Page
 
     public static ?string $title = null;
     public Region $region;
+    public $type;
     public $products;
 
     public function mount(Region $record)
     {
         static::$title = $record->name;
         $this->region = $record;
-        $this->products = $record->products;
+        $this->type = request('type');
+        $this->products = $record->products->where('pivot.type', $this->type);
     }
 }

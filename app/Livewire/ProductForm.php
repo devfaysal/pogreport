@@ -15,7 +15,8 @@ class ProductForm extends Component
     public $pog;
     public $budget;
     public $placement;
-    public $todays_pog;
+    public $add_placement;
+    public $add_pog;
     public $updated_at;
 
     public function mount(Region $region, $product)
@@ -38,11 +39,13 @@ class ProductForm extends Component
 
     public function updateProduct()
     {
-        $this->pog = $this->pog + $this->todays_pog;
+        $this->placement = $this->placement + $this->add_placement;
+        $this->pog = $this->pog + $this->add_pog;
         $this->region->products()->updateExistingPivot($this->id, [
             'pog' => $this->pog,
             'placement' => $this->placement
         ]);
-        $this->todays_pog = '';
+        $this->add_placement = '';
+        $this->add_pog = '';
     }
 }

@@ -1,38 +1,39 @@
 <tr class="border-b">
     <form wire:submit="updateProduct">
         <td class="text-sm ps-3 py-3">
-            <div>
-                <p class="text-2xl">
-                    {{ $product->name }} 
-                    <x-filament::badge color="success">
-                        {{ $type }}
-                    </x-filament::badge>
-                    </p>
-                <div style="width: 120px">
-                    ({{ $budget }} kg)
+            <p class="text-2xl">{{ $product->name }} </p>
+            <div class="flex pt-4">
+                <div class="px-4 py-2 border rounded-xl me-1">
+                    <p class="font-bold">Budget</p>
+                    <p>{{ $budget }} kg</p>
+                </div>
+                <div class="px-4 py-2 border rounded-xl me-1">
+                    <p class="font-bold">Placement</p>
+                    <p>{{ $placement }} kg</p>
+                </div>
+                <div class="px-4 py-2 border rounded-xl">
+                    <p class="font-bold">POG</p>
+                    <p>{{ $pog }} kg</p>
                 </div>
             </div>
-            <div class="flex items-end pt-2">
+            <div class="flex items-end pt-4">
                 <div class="pe-2">
                     <p class="pb-1">Placement</p>
-                    <p class="pb-1">{{ $placement }} Kg</p>
                     <x-filament::input.wrapper class="mt-1">
                         <x-filament::input
                             type="number"
-                            wire:model="placement"
+                            wire:model="add_placement"
                             class=""
                             min="1"
-                            required
                         />
                     </x-filament::input.wrapper>
                 </div>
                 <div class="pe-2">
                     <p class="pb-1">POG</p>
-                    <p class="pb-1">{{ $pog }} Kg</p>
                     <x-filament::input.wrapper class="mt-1">
                         <x-filament::input
                             type="number"
-                            wire:model="todays_pog"
+                            wire:model="add_pog"
                             class=""
                             min="1"
                             required
