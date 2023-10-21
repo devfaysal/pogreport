@@ -39,7 +39,10 @@ class ProductForm extends Component
     public function updateProduct()
     {
         $this->pog = $this->pog + $this->todays_pog;
-        $this->region->products()->updateExistingPivot($this->id, ['pog' => $this->pog]);
+        $this->region->products()->updateExistingPivot($this->id, [
+            'pog' => $this->pog,
+            'placement' => $this->placement
+        ]);
         $this->todays_pog = '';
     }
 }

@@ -12,6 +12,17 @@
             <x-filament::input.wrapper>
                 <x-filament::input
                     type="number"
+                    wire:model="placement"
+                    class="text-xs"
+                    min="1"
+                    required
+                />
+            </x-filament::input.wrapper>
+        </td>
+        <td class="px-3">
+            <x-filament::input.wrapper>
+                <x-filament::input
+                    type="number"
                     wire:model="todays_pog"
                     class="text-xs"
                     min="1"
