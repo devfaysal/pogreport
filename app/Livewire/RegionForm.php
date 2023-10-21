@@ -14,7 +14,6 @@ class RegionForm extends Component
     public $type;
     public $pog;
     public $budget;
-    public $placement;
     public $todays_pog;
     public $updated_at;
 
@@ -26,7 +25,6 @@ class RegionForm extends Component
         $this->id = $product->id;
         $this->type = $product->pivot->type;
         $this->budget = $product->pivot->budget;
-        $this->placement = $product->pivot->placement;
         $this->pog = $product->pivot->pog;
         $this->updated_at = $product->pivot->updated_at ? Carbon::parse($product->pivot->updated_at)->diffForHumans() : null;
     }
@@ -41,7 +39,6 @@ class RegionForm extends Component
         $this->pog = $this->pog + $this->todays_pog;
         $this->region->products()->updateExistingPivot($this->id, [
             'budget' => $this->budget,
-            'placement' => $this->placement,
         ]);
     }
 }
