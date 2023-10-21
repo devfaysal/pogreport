@@ -9,26 +9,30 @@
             <p class="text-xs">Updated: {{ $updated_at }}</p>
         </td>
         <td class="px-3">
-            <x-filament::input.wrapper>
-                <x-filament::input
-                    type="number"
-                    wire:model="placement"
-                    class="text-xs"
-                    min="1"
-                    required
-                />
-            </x-filament::input.wrapper>
-        </td>
-        <td class="px-3">
-            <x-filament::input.wrapper>
-                <x-filament::input
-                    type="number"
-                    wire:model="todays_pog"
-                    class="text-xs"
-                    min="1"
-                    required
-                />
-            </x-filament::input.wrapper>
+            <div class="py-2">
+                <p class="text-sm pb-1">Placement</p>
+                <x-filament::input.wrapper class="mt-1">
+                    <x-filament::input
+                        type="number"
+                        wire:model="placement"
+                        class="text-xs"
+                        min="1"
+                        required
+                    />
+                </x-filament::input.wrapper>
+            </div>
+            <div class="py-2">
+                <p class="text-sm pb-1">POG</p>
+                <x-filament::input.wrapper class="mt-1">
+                    <x-filament::input
+                        type="number"
+                        wire:model="todays_pog"
+                        class="text-xs"
+                        min="1"
+                        required
+                    />
+                </x-filament::input.wrapper>
+            </div>
         </td>
         <td class="text-center py-3 pe-3">
             <x-filament::button type="submit" size="xs">
