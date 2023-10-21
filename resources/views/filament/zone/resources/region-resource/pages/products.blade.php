@@ -14,7 +14,9 @@
             </thead>
             <tbody>
                 @foreach ($products as $product)
-                    @livewire('product-form', ['region' => $region, 'product' => $product])
+                    @if($product->pivot->budget > 0)
+                        @livewire('product-form', ['region' => $region, 'product' => $product])
+                    @endif
                 @endforeach
             </tbody>
         </table>
