@@ -22,7 +22,7 @@ class Products extends Page
     {
         static::$title = $record->name;
         $this->region = $record;
-        $this->type = request('type');
+        $this->type = request()->has('type') ? request('type') : 'Hybrid Rice';
         $this->products = $record->products->where('pivot.type', $this->type);
     }
 }

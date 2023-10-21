@@ -15,11 +15,15 @@
             Back
         </x-filament::button>
         <div>
-            @foreach ($products as $product)
+            @forelse ($products as $product)
                 @if($product->pivot->budget > 0)
                     @livewire('product-form', ['region' => $region, 'product' => $product])
                 @endif
-            @endforeach
+            @empty
+                <div class="mt-3 w-full px-3 py-2 ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
+                    No Products Found
+                </div>
+            @endforelse
         </div>
     </div>
 </x-filament-panels::page>
