@@ -14,14 +14,12 @@
         <x-filament::button href="/zone" tag="a" class="mb-2">
             Back
         </x-filament::button>
-        <table class="w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
-            <tbody>
-                @foreach ($products as $product)
-                    @if($product->pivot->budget > 0)
-                        @livewire('product-form', ['region' => $region, 'product' => $product])
-                    @endif
-                @endforeach
-            </tbody>
-        </table>
+        <div>
+            @foreach ($products as $product)
+                @if($product->pivot->budget > 0)
+                    @livewire('product-form', ['region' => $region, 'product' => $product])
+                @endif
+            @endforeach
+        </div>
     </div>
 </x-filament-panels::page>
