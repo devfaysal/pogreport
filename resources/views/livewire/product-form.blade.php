@@ -1,7 +1,8 @@
 <div class="mt-3 w-full px-3 py-2 ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
     <form wire:submit="updateProduct">
         <p class="text-2xl">{{ $product->name }} </p>
-        <div class="flex pt-4">
+        <p class="text-xs mt-1">Updated {{ $updated_at }}</p>
+        <div class="flex pt-2">
             <div class="px-2 py-2 border rounded-xl me-1">
                 <p class="font-bold">Budget <span class="text-xs font-normal">(kg)</span></p>
                 <p class="text-sm">{{ $budget }}</p>
@@ -15,7 +16,7 @@
                 <p class="text-sm">{{ $pog }}</p>
             </div>
         </div>
-        <div class="flex items-end pt-4">
+        <div class="flex items-end pt-2">
             <div class="pe-2">
                 <p class="pb-1">Placement</p>
                 <x-filament::input.wrapper class="mt-1">
@@ -46,6 +47,5 @@
                 </x-filament::button>
             </div>
         </div>
-        <p class="text-xs mt-2">Updated: {{ $updated_at }}</p>
     </form>
 </div>
