@@ -9,7 +9,6 @@
                     <th class="text-left text-sm py-4 ps-3">Name</th>
                     <th class="text-left text-sm py-4 ps-3">Type</th>
                     <th class="text-center text-sm">Budget</th>
-                    <th class="text-center text-sm">placement</th>
                     <th class="text-center text-sm" style="width: 75px"></th>
                 </tr>
             </thead>
