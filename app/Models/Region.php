@@ -15,7 +15,7 @@ class Region extends Model
 
     public function products():BelongsToMany
     {
-        return $this->belongsToMany(Product::class)->withPivot('type', 'budget', 'placement', 'pog')->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('type', 'budget', 'placement', 'pog', 'budget_log', 'placement_log', 'pog_log')->withTimestamps();
     }
 
     public function zone():BelongsTo
