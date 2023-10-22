@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Pages\Auth\ZoneLogin;
 use App\Filament\Zone\Pages\EditProfile;
 use App\Filament\Zone\Widgets\Regions;
+use App\Filament\Zone\Widgets\Welcome;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -43,8 +44,8 @@ class ZonePanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Zone/Widgets'), for: 'App\\Filament\\Zone\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
                 Regions::class,
+                Welcome::class,
             ])
             ->middleware([
                 EncryptCookies::class,
