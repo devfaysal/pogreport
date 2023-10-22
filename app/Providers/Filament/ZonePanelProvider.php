@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\ZoneLogin;
+use App\Filament\Zone\Pages\EditProfile;
 use App\Filament\Zone\Widgets\Regions;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -34,6 +35,7 @@ class ZonePanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->darkMode(false)
             ->discoverResources(in: app_path('Filament/Zone/Resources'), for: 'App\\Filament\\Zone\\Resources')
             ->discoverPages(in: app_path('Filament/Zone/Pages'), for: 'App\\Filament\\Zone\\Pages')
             ->pages([
@@ -55,6 +57,7 @@ class ZonePanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->profile(EditProfile::class)
             ->authMiddleware([
                 Authenticate::class,
             ]);
