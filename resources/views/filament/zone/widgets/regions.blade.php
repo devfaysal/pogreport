@@ -13,7 +13,7 @@
     @endphp
         <a href="/zone/regions/{{ $region->id }}">
             <div class="fi-section rounded-xl bg-primary-600 shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10" style="margin-bottom:10px; ">
-                <p class="text-center text-white font-bold p-4 text-2xl">{{ $region->name }}</p>
+                <p class="text-center text-white font-bold px-4 py-2 text-2xl">{{ $region->name }}</p>
             </div>
         </a>
         <table class="mb-4 w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
