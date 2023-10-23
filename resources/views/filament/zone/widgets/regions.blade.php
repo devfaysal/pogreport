@@ -19,30 +19,30 @@
         <table class="mb-4 w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
             <thead>
                 <tr class="border-b">
-                    <th class="text-left text-sm ps-2 py-1"></th>
-                    <th class="text-left text-sm ps-2 py-1">Budget</th>
-                    <th class="text-left text-sm ps-2 py-1">Placement</th>
-                    <th class="text-left text-sm ps-2 py-1">POG</th>
+                    <th class="text-left text-sm ps-2 py-1" style="width: 25%"></th>
+                    <th class="text-left text-xs ps-2 py-1" style="width: 25%">Budget</th>
+                    <th class="text-left text-xs ps-2 py-1" style="width: 25%">Placement</th>
+                    <th class="text-left text-xs ps-2 py-1" style="width: 25%">POG</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="border-b">
-                    <th class="text-sm ps-2 py-1 text-left">Hybrid Rice</th>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_rice_budgets }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_rice_placements }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_rice_pogs }}</td>
+                    <th class="text-xs ps-2 py-1 text-left">Hybrid Rice</th>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_rice_budgets }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_rice_placements }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_rice_pogs }}</td>
                 </tr>
                 <tr class="border-b">
-                    <th class="text-sm ps-2 py-1 text-left">Inbred Rice</th>
-                    <td class="text-sm ps-2 py-1">{{ $inbred_rice_budgets }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $inbred_rice_placements }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $inbred_rice_pogs }}</td>
+                    <th class="text-xs ps-2 py-1 text-left">Inbred Rice</th>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $inbred_rice_budgets }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $inbred_rice_placements }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $inbred_rice_pogs }}</td>
                 </tr>
                 <tr class="border-b">
-                    <th class="text-sm ps-2 py-1 text-left">Maize</th>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_maize_budgets }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_maize_placements }}</td>
-                    <td class="text-sm ps-2 py-1">{{ $hybrid_maize_pogs }}</td>
+                    <th class="text-xs ps-2 py-1 text-left">Maize</th>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_maize_budgets }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_maize_placements }}</td>
+                    <td class="text-xs font-bold ps-2 py-1">{{ $hybrid_maize_pogs }}</td>
                 </tr>
             </tbody>
         </table>
