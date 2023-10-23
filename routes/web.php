@@ -20,3 +20,8 @@ use Illuminate\Support\Str;
 Route::get('/', function () {
     return redirect('zone/login');
 });
+
+Route::get('/test', function(){
+    $r = Region::first();
+    dd($r->products->sum('pivot.pog'));
+});
