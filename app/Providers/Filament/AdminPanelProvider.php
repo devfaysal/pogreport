@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\EditProfile;
+use App\Filament\Widgets\Report;
 use App\Filament\Widgets\Welcome;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -43,6 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Welcome::class,
+                Report::class,
             ])
             ->middleware([
                 EncryptCookies::class,

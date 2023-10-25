@@ -22,4 +22,28 @@ class Region extends Model
     {
         return $this->belongsTo(Zone::class);
     }
+
+    public function hybridRice()
+    {
+        return $this->belongsToMany(Product::class)
+            ->wherePivot('type', 'Hybrid Rice')
+            ->withPivot('type', 'budget', 'placement', 'pog', 'budget_log', 'placement_log', 'pog_log')
+            ->withTimestamps();
+    }
+
+    public function inbredRice()
+    {
+        return $this->belongsToMany(Product::class)
+            ->wherePivot('type', 'Inbred Rice')
+            ->withPivot('type', 'budget', 'placement', 'pog', 'budget_log', 'placement_log', 'pog_log')
+            ->withTimestamps();
+    }
+
+    public function hybridMaize()
+    {
+        return $this->belongsToMany(Product::class)
+            ->wherePivot('type', 'Hybrid Maize')
+            ->withPivot('type', 'budget', 'placement', 'pog', 'budget_log', 'placement_log', 'pog_log')
+            ->withTimestamps();
+    }
 }

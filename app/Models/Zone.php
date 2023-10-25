@@ -17,4 +17,49 @@ class Zone extends Authenticatable
     {
         return $this->hasMany(Region::class);
     }
+
+    public function hybridRice()
+    {
+        $report = [
+            'budget' => 0,
+            'placement' => 0,
+            'pog' => 0,
+        ];
+        foreach($this->regions as $region){
+            $report['budget'] += $region->hybridRice->sum('pivot.budget');
+            $report['placement'] += $region->hybridRice->sum('pivot.placement');
+            $report['pog'] += $region->hybridRice->sum('pivot.pog');
+        }
+        return $report;
+    }
+
+    public function inbredRice()
+    {
+        $report = [
+            'budget' => 0,
+            'placement' => 0,
+            'pog' => 0,
+        ];
+        foreach ($this->regions as $region) {
+            $report['budget'] += $region->inbredRice->sum('pivot.budget');
+            $report['placement'] += $region->inbredRice->sum('pivot.placement');
+            $report['pog'] += $region->inbredRice->sum('pivot.pog');
+        }
+        return $report;
+    }
+
+    public function hybridMaize()
+    {
+        $report = [
+            'budget' => 0,
+            'placement' => 0,
+            'pog' => 0,
+        ];
+        foreach ($this->regions as $region) {
+            $report['budget'] += $region->hybridMaize->sum('pivot.budget');
+            $report['placement'] += $region->hybridMaize->sum('pivot.placement');
+            $report['pog'] += $region->hybridMaize->sum('pivot.pog');
+        }
+        return $report;
+    }
 }
