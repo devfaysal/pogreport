@@ -47,7 +47,7 @@
             </tr>
         </tbody>
     </table>
-    <div style="overflow-x: scroll">
+    <div class="px-1 py-1" style="overflow-x: scroll">
         <table class="mb-4 w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
             <thead>
                 <tr class="border-b">
