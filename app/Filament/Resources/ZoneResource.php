@@ -16,6 +16,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ZoneResource extends Resource
 {
@@ -60,7 +61,9 @@ class ZoneResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     // Tables\Actions\DeleteBulkAction::make(),
-                    ExportBulkAction::make()
+                    ExportBulkAction::make()->exports([
+                        ExcelExport::make()->withFilename('zone-report-' . date('d-m-Y-H-i-s')),
+                    ])
                 ]),
             ])
             ->defaultPaginationPageOption(25);
