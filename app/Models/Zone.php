@@ -18,6 +18,11 @@ class Zone extends Authenticatable
         return $this->hasMany(Region::class);
     }
 
+    public function getHybridRiceAttribute()
+    {
+        return $this->hybridRice();
+    }
+
     public function hybridRice()
     {
         $report = [
