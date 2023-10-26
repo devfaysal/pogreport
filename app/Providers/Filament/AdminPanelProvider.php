@@ -60,6 +60,9 @@ class AdminPanelProvider extends PanelProvider
             ->profile(EditProfile::class)
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
             ]);
     }
 }
