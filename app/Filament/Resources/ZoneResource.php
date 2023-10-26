@@ -61,9 +61,7 @@ class ZoneResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     // Tables\Actions\DeleteBulkAction::make(),
-                    ExportBulkAction::make()->exports([
-                        ExcelExport::make()->withFilename('zone-report-' . date('d-m-Y-H-i-s')),
-                    ])
+                    ExportBulkAction::make()
                 ]),
             ])
             ->defaultPaginationPageOption(25);
