@@ -22,6 +22,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-    $r = Region::first();
-    dd($r->products->sum('pivot.pog'));
+    // $zones = Zone::get();
 });
