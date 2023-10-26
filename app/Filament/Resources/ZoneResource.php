@@ -38,20 +38,32 @@ class ZoneResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('phone'),
-                TextColumn::make('hybridRice'),
+                TextColumn::make('hybridRiceBudget')->label('HR Budget'),
+                TextColumn::make('hybridRicePlacement')->label('HR Placement'),
+                TextColumn::make('hybridRicePog')->label('HR POG'),
+                TextColumn::make('inbredRiceBudget')->label('IR Budget'),
+                TextColumn::make('inbredRicePlacement')->label('IR Placement'),
+                TextColumn::make('inbredRicePog')->label('IR POG'),
+                TextColumn::make('hybridMaizeBudget')->label('M Budget'),
+                TextColumn::make('hybridMaizePlacement')->label('M Placement'),
+                TextColumn::make('hybridMaizePog')->label('M POG'),
+                TextColumn::make('budgetSum')->label('Budget Sum'),
+                TextColumn::make('placementSum')->label('Placement Sum'),
+                TextColumn::make('pogSum')->label('POG Sum'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    // Tables\Actions\DeleteBulkAction::make(),
                     ExportBulkAction::make()
                 ]),
-            ]);
+            ])
+            ->defaultPaginationPageOption(25);
     }
     
     public static function getRelations(): array

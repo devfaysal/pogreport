@@ -18,9 +18,53 @@ class Zone extends Authenticatable
         return $this->hasMany(Region::class);
     }
 
-    public function getHybridRiceAttribute()
+    public function getHybridRiceBudgetAttribute()
     {
-        return $this->hybridRice();
+        return $this->hybridRice()['budget'];
+    }
+    public function getHybridRicePlacementAttribute()
+    {
+        return $this->hybridRice()['placement'];
+    }
+    public function getHybridRicePogAttribute()
+    {
+        return $this->hybridRice()['pog'];
+    }
+    public function getInbredRiceBudgetAttribute()
+    {
+        return $this->inbredRice()['budget'];
+    }
+    public function getInbredRicePlacementAttribute()
+    {
+        return $this->inbredRice()['placement'];
+    }
+    public function getInbredRicePogAttribute()
+    {
+        return $this->inbredRice()['pog'];
+    }
+    public function getHybridMaizeBudgetAttribute()
+    {
+        return $this->hybridMaize()['budget'];
+    }
+    public function getHybridMaizePlacementAttribute()
+    {
+        return $this->hybridMaize()['placement'];
+    }
+    public function getHybridMaizePogAttribute()
+    {
+        return $this->hybridMaize()['pog'];
+    }
+    public function getBudgetSumAttribute()
+    {
+        return $this->hybridRice()['budget'] + $this->inbredRice()['budget'] + $this->hybridMaize()['budget'];
+    }
+    public function getPlacementSumAttribute()
+    {
+        return $this->hybridRice()['placement'] + $this->inbredRice()['placement'] + $this->hybridMaize()['placement'];
+    }
+    public function getPogSumAttribute()
+    {
+        return $this->hybridRice()['pog'] + $this->inbredRice()['pog'] + $this->hybridMaize()['pog'];
     }
 
     public function hybridRice()
