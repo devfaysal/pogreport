@@ -9,7 +9,7 @@ class Report extends Widget
 {
     protected static string $view = 'filament.widgets.report';
 
-    protected int | string | array $columnSpan = 2;
+    // protected int | string | array $columnSpan = 2;
 
     public $zones;
 
