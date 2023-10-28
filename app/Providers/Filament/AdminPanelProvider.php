@@ -31,6 +31,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->brandLogo(asset('sscl_logo.png'))
             ->brandLogoHeight('4rem')
+            ->sidebarWidth('220px')
+            ->maxContentWidth('full')
             ->login()
             ->navigationGroups([
                 'Reports'
