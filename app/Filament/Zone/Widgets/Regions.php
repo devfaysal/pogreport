@@ -11,6 +11,11 @@ class Regions extends Widget
 
     public $regions;
 
+    public static function shouldSkipAuthorization(): bool
+    {
+        return true;
+    }
+
     public function mount()
     {
         $this->regions = Auth::user()->regions;
