@@ -39,18 +39,7 @@ class ZoneResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('phone'),
-                TextColumn::make('hybridRiceBudget')->label('HR Budget'),
-                TextColumn::make('hybridRicePlacement')->label('HR Placement'),
-                TextColumn::make('hybridRicePog')->label('HR POG'),
-                TextColumn::make('inbredRiceBudget')->label('IR Budget'),
-                TextColumn::make('inbredRicePlacement')->label('IR Placement'),
-                TextColumn::make('inbredRicePog')->label('IR POG'),
-                TextColumn::make('hybridMaizeBudget')->label('M Budget'),
-                TextColumn::make('hybridMaizePlacement')->label('M Placement'),
-                TextColumn::make('hybridMaizePog')->label('M POG'),
-                TextColumn::make('budgetSum')->label('Budget Sum'),
-                TextColumn::make('placementSum')->label('Placement Sum'),
-                TextColumn::make('pogSum')->label('POG Sum'),
+                TextColumn::make('updated_at'),
             ])
             ->filters([
                 //
@@ -61,9 +50,6 @@ class ZoneResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                 // Tables\Actions\DeleteBulkAction::make(),
-                    ExportBulkAction::make()->exports([
-                        ExcelExport::make()->withFilename('zone-report-' . date('d-m-Y-H-i-s'))->fromTable()
-                    ])
                 ]),
             ])
             ->defaultPaginationPageOption(25);

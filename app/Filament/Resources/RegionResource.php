@@ -40,6 +40,7 @@ class RegionResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('phone'),
                 TextColumn::make('zone.name'),
+                TextColumn::make('updated_at'),
             ])
             ->filters([
                 //

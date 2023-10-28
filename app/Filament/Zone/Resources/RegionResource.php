@@ -22,6 +22,11 @@ class RegionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function shouldSkipAuthorization(): bool
+    {
+        return true;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         $zone = Auth::user();

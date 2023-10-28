@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Region;
+use App\Models\User;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
@@ -60,10 +61,17 @@ class ProductForm extends Component
 
         if(!empty($data)){
             $this->region->products()->updateExistingPivot($this->id, $data);
+            $this->region->touch();
+            $this->region->zone->touch();
+            $recipients = User::get();
             Notification::make()
                 ->title('Saved successfully')
                 ->success()
                 ->send();
+            Notification::make()
+                ->title($this->region->name . ' region updated')
+                ->success()
+                ->sendToDatabase($recipients);
         }
         $this->add_placement = null;
         $this->add_pog = null;

@@ -32,6 +32,9 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('sscl_logo.png'))
             ->brandLogoHeight('4rem')
             ->login()
+            ->navigationGroups([
+                'Reports'
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -60,6 +63,10 @@ class AdminPanelProvider extends PanelProvider
             ->profile(EditProfile::class)
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->databaseNotifications()
+            ->plugins([
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
             ]);
     }
 }

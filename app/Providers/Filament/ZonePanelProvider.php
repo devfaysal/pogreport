@@ -61,6 +61,7 @@ class ZonePanelProvider extends PanelProvider
             ->profile(EditProfile::class)
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->databaseNotifications();
     }
 }

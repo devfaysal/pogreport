@@ -1,10 +1,12 @@
 <?php
 
+use App\Exports\HybridRiceReport;
 use App\Models\Region;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +24,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-    // $zones = Zone::get();
+    return Excel::download(new HybridRiceReport, 'HybridRiceReport.xlsx');
 });
