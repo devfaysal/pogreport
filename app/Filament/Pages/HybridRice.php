@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Exports\HybridRiceReport;
+use App\Models\Product;
 use App\Models\Zone;
 use Filament\Actions\Action;
 use Filament\Pages\Page;
@@ -17,10 +18,12 @@ class HybridRice extends Page
     protected static ?string $navigationGroup = 'Reports';
 
     public $zones;
+    public $products;
 
     public function mount()
     {
         $this->zones = Zone::get();
+        $this->products = Product::where('type', 'Hybrid Rice')->get();
     }
 
     protected function getHeaderActions(): array

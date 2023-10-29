@@ -2,52 +2,18 @@
 
 namespace App\Exports;
 
+use App\Models\Product;
 use App\Models\Zone;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class MaizeReport implements FromCollection
+class MaizeReport implements FromView
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    public function view(): View
     {
-        $report[] = [
-            'Name',
-            'Budget',
-            'Placement',
-            'POG',
-        ];
-        $zones = Zone::get();
-        $budgetSum = 0;
-        $placementSum = 0;
-        $pogSum = 0;
-        foreach ($zones as $zone) {
-            $budgetSum += $zone->hybridMaize()['budget'];
-            $placementSum += $zone->hybridMaize()['placement'];
-            $pogSum += $zone->hybridMaize()['pog'];
-            foreach ($zone->regions as $region) {
-                $report[] = [
-                    $region->name,
-                    $region->hybridMaize->sum('pivot.budget'),
-                    $region->hybridMaize->sum('pivot.placement'),
-                    $region->hybridMaize->sum('pivot.pog'),
-                ];
-            }
-            $report[] = [
-                $zone->name,
-                $zone->hybridMaize()['budget'],
-                $zone->hybridMaize()['placement'],
-                $zone->hybridMaize()['pog'],
-            ];
-        }
-        $report[] = [
-            'Total',
-            $budgetSum,
-            $placementSum,
-            $pogSum,
-        ];
-
-        return collect($report);
+        return view('filament.pages.tables.maize', [
+            'zones' => Zone::all(),
+            'products' => Product::where('type', 'Hybrid Maize')->get(),
+        ]);
     }
 }
