@@ -2,7 +2,7 @@
     <table class="mb-4 w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
         <thead>
             <x-table.tr>
-                <x-table.th rowspan="2">Zone/Region Name</x-table.th>
+                <x-table.th rowspan="2" style="white-space: nowrap;">Zone/Region Name</x-table.th>
                 @foreach ($products as $product)
                     <x-table.th colspan="3">{{ $product->name }}</x-table.th>
                 @endforeach
@@ -40,7 +40,7 @@
                 @endphp
                 @foreach ($zone->regions as $region)
                     <x-table.tr>
-                        <x-table.td>{{ $region->name }}</x-table.td>
+                        <x-table.td style="white-space: nowrap;">{{ $region->name }}</x-table.td>
                         @foreach ($products as $product)
                             @php
                                 $zoneBudget[$product->id] += $product->regions->find($region->id)->pivot->budget;    
@@ -57,7 +57,7 @@
                     </x-table.tr>
                 @endforeach
             <x-table.tr class="bg-primary-500">
-                <x-table.td>{{ $zone->name }}</x-table.td>
+                <x-table.td style="white-space: nowrap;">{{ $zone->name }}</x-table.td>
                 @foreach ($products as $product)
                     @php
                         $productBudgetSum[$product->id] += $zoneBudget[$product->id];
@@ -79,7 +79,7 @@
             </x-table.tr>
             @endforeach
             <x-table.tr>
-                <x-table.th>Total</x-table.th>
+                <x-table.th style="width: 300px">Total</x-table.th>
                 @foreach ($products as $product)
                     <x-table.td>{{ $productBudgetSum[$product->id] }}</x-table.td>
                     <x-table.td>{{ $productPlacementSum[$product->id] }}</x-table.td>
