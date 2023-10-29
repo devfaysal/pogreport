@@ -9,7 +9,7 @@ class Summary extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.all-report';
+    protected static string $view = 'filament.pages.summary';
 
     protected static ?string $navigationGroup = 'Reports';
 

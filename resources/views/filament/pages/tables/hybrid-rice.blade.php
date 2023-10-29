@@ -78,7 +78,7 @@
                 <x-table.td>{{ $zone->hybridRice()['pog'] }}</x-table.td>
             </x-table.tr>
             @endforeach
-            <x-table.tr>
+            <x-table.tr class="border-b-0">
                 <x-table.th style="width: 300px">Total</x-table.th>
                 @foreach ($products as $product)
                     <x-table.td>{{ $productBudgetSum[$product->id] }}</x-table.td>

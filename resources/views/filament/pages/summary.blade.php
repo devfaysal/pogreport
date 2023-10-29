@@ -121,7 +121,7 @@
                 </x-table.tr>
             @endforeach
             <tfoot>
-                <x-table.tr>
+                <x-table.tr class="border-b-0">
                     <x-table.td class="font-bold">Total</x-table.td>
                     <x-table.td>
                         <div class="flex">
