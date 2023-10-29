@@ -5,7 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\Zone;
 use Filament\Pages\Page;
 
-class AllReport extends Page
+class Summary extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

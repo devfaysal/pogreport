@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Faysal Ahamed',
             'email' => 'faysal@surovigroup.net',
         ]);
+        $this->call(ShieldSeeder::class);
         $this->call(ZonesTableSeeder::class);
         $this->call(RegionsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
