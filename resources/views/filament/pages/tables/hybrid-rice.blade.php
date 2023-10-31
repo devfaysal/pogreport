@@ -1,4 +1,5 @@
-<div class="px-1 py-1" style="overflow-x: scroll">
+<x-scroll-button/>
+<div class="px-1 py-1 h-screen" id="container-scroll" style="overflow: scroll">
     <table class="mb-4 w-full ring-1 ring-gray-950/5 dark:ring-white/10 rounded-xl bg-white dark:bg-gray-900">
         <thead>
             <x-table.tr>

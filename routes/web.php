@@ -24,5 +24,6 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function(){
-    return Excel::download(new HybridRiceReport, 'HybridRiceReport.xlsx');
+    // return Excel::download(new HybridRiceReport, 'HybridRiceReport.xlsx');
+    return view('test');
 });
