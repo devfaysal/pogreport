@@ -10,6 +10,9 @@ use Database\Seeders\RegionsTableSeeder;
 use Database\Seeders\ZonesTableSeeder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+
+use function Laravel\Prompts\table;
 
 class CleanData extends Command
 {
@@ -35,6 +38,7 @@ class CleanData extends Command
         Zone::truncate();
         Region::truncate();
         Product::truncate();
+        DB::table('product_region')->truncate();
         $this->call(ZonesTableSeeder::class);
         $this->call(RegionsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
