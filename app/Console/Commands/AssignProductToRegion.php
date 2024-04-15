@@ -13,7 +13,7 @@ class AssignProductToRegion extends Command
      *
      * @var string
      */
-    protected $signature = 'assign-product';
+    protected $signature = 'app:assign-product';
 
     /**
      * The console command description.
