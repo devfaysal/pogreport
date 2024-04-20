@@ -50,6 +50,7 @@ class ZoneResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('manager_name'),
                 TextColumn::make('phone'),
+                TextColumn::make('regions.name')->badge()->color('success'),
                 TextColumn::make('updated_at'),
             ])
             ->filters([
