@@ -40,6 +40,9 @@ class ZoneResource extends Resource
                     ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
                     ->dehydrated(fn (?string $state): bool => filled($state))
                     ->required(fn (string $operation): bool => $operation === 'create'),
+                TextInput::make('order')
+                    ->numeric()
+                    ->default(0),
             ]);
     }
 
@@ -64,6 +67,7 @@ class ZoneResource extends Resource
                 // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
+            -> defaultSort('order', 'desc')
             ->defaultPaginationPageOption(25);
     }
     
