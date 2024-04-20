@@ -68,7 +68,7 @@ class ZoneResource extends Resource
                 // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            -> defaultSort('order', 'desc')
+            -> defaultSort('order', 'asc')
             ->defaultPaginationPageOption(25);
     }
     
