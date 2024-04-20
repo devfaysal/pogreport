@@ -50,6 +50,7 @@ class ZoneResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('order')->label(''),
                 TextColumn::make('name'),
                 TextColumn::make('manager_name'),
                 TextColumn::make('phone'),
