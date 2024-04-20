@@ -48,6 +48,7 @@ class ZoneResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
+                TextColumn::make('manager_name'),
                 TextColumn::make('phone'),
                 TextColumn::make('updated_at'),
             ])
