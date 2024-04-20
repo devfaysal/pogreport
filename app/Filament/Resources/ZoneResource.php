@@ -15,6 +15,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Hash;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
@@ -29,7 +30,15 @@ class ZoneResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name'),
-                TextInput::make('phone'),
+                TextInput::make('phone')->unique(ignoreRecord: true),
+                TextInput::make('password')
+                    ->password()
+                    ->afterStateHydrated(function (Forms\Components\TextInput $component, $state) {
+                        $component->state('');
+                    })
+                    ->dehydrateStateUsing(fn (string $state): string => Hash::make($state))
+                    ->dehydrated(fn (?string $state): bool => filled($state))
+                    ->required(fn (string $operation): bool => $operation === 'create'),
             ]);
     }
 
