@@ -30,6 +30,7 @@ class ZoneResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name'),
+                TextInput::make('manager_name'),
                 TextInput::make('phone')->unique(ignoreRecord: true),
                 TextInput::make('password')
                     ->password()
