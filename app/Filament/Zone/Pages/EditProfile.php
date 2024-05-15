@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Zone\Pages;
 
 use Filament\Forms\Components\Component;
@@ -13,22 +14,22 @@ class EditProfile extends Base
     protected function getNameFormComponent(): Component
     {
         return TextInput::make('name')
-        ->label(__('filament-panels::pages/auth/edit-profile.form.name.label'))
-        ->readOnly();
+            ->label(__('filament-panels::pages/auth/edit-profile.form.name.label'))
+            ->readOnly();
     }
 
     protected function getEmailFormComponent(): Component
     {
         return TextInput::make('phone')
-        ->label('Phone Number')
-        ->readOnly();
+            ->label('Phone Number')
+            ->readOnly();
     }
 
     protected function getPasswordFormComponent(): Component
     {
         return TextInput::make('password')
-        ->label(__('filament-panels::pages/auth/edit-profile.form.password.label'))
-        ->password()
+            ->label(__('filament-panels::pages/auth/edit-profile.form.password.label'))
+            ->password()
             ->rule(Password::default())
             ->autocomplete('new-password')
             ->dehydrated(fn ($state): bool => filled($state))
@@ -40,8 +41,8 @@ class EditProfile extends Base
     protected function getPasswordConfirmationFormComponent(): Component
     {
         return TextInput::make('passwordConfirmation')
-        ->label(__('filament-panels::pages/auth/edit-profile.form.password_confirmation.label'))
-        ->password()
+            ->label(__('filament-panels::pages/auth/edit-profile.form.password_confirmation.label'))
+            ->password()
             ->required()
             ->visible(fn (Get $get): bool => filled($get('password')))
             ->dehydrated(false);

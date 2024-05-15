@@ -18,6 +18,7 @@ class HybridRice extends Page
     protected static ?string $navigationGroup = 'Reports';
 
     public $zones;
+
     public $products;
 
     public function mount()
@@ -30,8 +31,8 @@ class HybridRice extends Page
     {
         return [
             Action::make('Export')
-                ->action(function(){
-                    return Excel::download(new HybridRiceReport, 'HybridRiceReport-'. time() . '.xlsx');
+                ->action(function () {
+                    return Excel::download(new HybridRiceReport, 'HybridRiceReport-'.time().'.xlsx');
                 }),
         ];
     }

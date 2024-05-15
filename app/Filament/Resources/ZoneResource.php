@@ -3,21 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ZoneResource\Pages;
-use App\Filament\Resources\ZoneResource\RelationManagers;
 use App\Models\Zone;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ZoneResource extends Resource
 {
@@ -51,9 +45,9 @@ class ZoneResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('order')->label(''),
-                TextColumn::make('name'),
-                TextColumn::make('manager_name'),
-                TextColumn::make('phone'),
+                TextColumn::make('name')->searchable(),
+                TextColumn::make('manager_name')->searchable(),
+                TextColumn::make('phone')->searchable(),
                 TextColumn::make('regions.name')->badge()->color('success'),
                 TextColumn::make('updated_at'),
             ])
@@ -65,20 +59,20 @@ class ZoneResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                // Tables\Actions\DeleteBulkAction::make(),
+                    // Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            -> defaultSort('order', 'asc')
+            ->defaultSort('order', 'asc')
             ->defaultPaginationPageOption(25);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -86,5 +80,5 @@ class ZoneResource extends Resource
             'create' => Pages\CreateZone::route('/create'),
             'edit' => Pages\EditZone::route('/{record}/edit'),
         ];
-    }    
+    }
 }

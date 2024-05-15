@@ -13,7 +13,9 @@ class ViewRegion extends Page
     protected static string $view = 'filament.resources.region-resource.pages.view-region';
 
     public static ?string $title = null;
+
     public Region $region;
+
     public $products;
 
     public function mount(Region $record)

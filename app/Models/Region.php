@@ -13,12 +13,12 @@ class Region extends Model
 
     protected $guarded = [];
 
-    public function products():BelongsToMany
+    public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class)->withPivot('type', 'budget', 'placement', 'pog', 'budget_log', 'placement_log', 'pog_log')->withTimestamps();
     }
 
-    public function zone():BelongsTo
+    public function zone(): BelongsTo
     {
         return $this->belongsTo(Zone::class);
     }

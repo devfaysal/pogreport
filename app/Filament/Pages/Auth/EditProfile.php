@@ -1,12 +1,8 @@
 <?php
+
 namespace App\Filament\Pages\Auth;
 
-use Filament\Forms\Components\Component;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
 use Filament\Pages\Auth\EditProfile as Base;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
 
 class EditProfile extends Base
 {

@@ -5,23 +5,34 @@ namespace App\Livewire;
 use App\Models\Region;
 use App\Models\User;
 use Filament\Notifications\Notification;
-use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class ProductForm extends Component
 {
     public Region $region;
+
     public $product;
+
     public $id;
+
     public $type;
+
     public int $pog;
+
     public int $budget;
+
     public int $placement;
+
     public ?int $add_placement = null;
+
     public ?int $add_pog = null;
+
     public $budget_log;
+
     public $placement_log;
+
     public $pog_log;
+
     public $updated_at;
 
     public function mount(Region $region, $product)
@@ -59,7 +70,7 @@ class ProductForm extends Component
             $data['pog_log'] = json_encode($this->pog_log);
         }
 
-        if(!empty($data)){
+        if (! empty($data)) {
             $this->region->products()->updateExistingPivot($this->id, $data);
             $this->region->touch();
             $this->region->zone->touch();
@@ -69,7 +80,7 @@ class ProductForm extends Component
                 ->success()
                 ->send();
             Notification::make()
-                ->title($this->region->name . ' region updated')
+                ->title($this->region->name.' region updated')
                 ->success()
                 ->sendToDatabase($recipients);
         }

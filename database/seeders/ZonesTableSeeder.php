@@ -13,7 +13,7 @@ class ZonesTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('zones')->delete();
-        
+
         DB::table('zones')->insert([
             [
                 'name' => 'Banglabandha-Hili',
@@ -90,7 +90,7 @@ class ZonesTableSeeder extends Seeder
                 'phone' => '01844643436',
                 'password' => bcrypt('$upreme$eed'),
             ],
-            
+
         ]);
     }
 }

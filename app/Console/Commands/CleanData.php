@@ -12,8 +12,6 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
-use function Laravel\Prompts\table;
-
 class CleanData extends Command
 {
     /**

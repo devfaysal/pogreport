@@ -3,9 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\RegionResource\Pages;
-use App\Filament\Resources\RegionResource\RelationManagers;
 use App\Models\Region;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -13,8 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class RegionResource extends Resource
 {
@@ -37,9 +33,9 @@ class RegionResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')->searchable(),
                 TextColumn::make('phone'),
-                TextColumn::make('zone.name'),
+                TextColumn::make('zone.name')->searchable(),
                 TextColumn::make('updated_at'),
             ])
             ->filters([
@@ -55,14 +51,14 @@ class RegionResource extends Resource
                 ]),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -71,5 +67,5 @@ class RegionResource extends Resource
             'view' => Pages\ViewRegion::route('/{record}'),
             'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
-    }    
+    }
 }

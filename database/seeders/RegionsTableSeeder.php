@@ -13,7 +13,7 @@ class RegionsTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('regions')->delete();
-        
+
         DB::table('regions')->insert([
             [
                 'name' => 'Banglabandha',
@@ -165,6 +165,6 @@ class RegionsTableSeeder extends Seeder
                 'phone' => '01841145183',
                 'zone_id' => 15,
             ],
-        ]);        
+        ]);
     }
 }

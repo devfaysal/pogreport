@@ -3,17 +3,14 @@
 namespace App\Filament\Zone\Resources;
 
 use App\Filament\Zone\Resources\RegionResource\Pages;
-use App\Filament\Zone\Resources\RegionResource\RelationManagers;
 use App\Filament\Zone\Resources\RegionResource\RelationManagers\ProductsRelationManager;
 use App\Models\Region;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 
 class RegionResource extends Resource
@@ -59,14 +56,14 @@ class RegionResource extends Resource
 
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             ProductsRelationManager::class,
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -75,5 +72,5 @@ class RegionResource extends Resource
             'view' => Pages\Products::route('/{record}'),
             // 'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
-    }    
+    }
 }

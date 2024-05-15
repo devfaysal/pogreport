@@ -18,6 +18,7 @@ class Maize extends Page
     protected static ?string $navigationGroup = 'Reports';
 
     public $zones;
+
     public $products;
 
     public function mount()
@@ -30,9 +31,9 @@ class Maize extends Page
     {
         return [
             Action::make('Export')
-            ->action(function () {
-                return Excel::download(new MaizeReport, 'MaizeReport-' . time() . '.xlsx');
-            }),
+                ->action(function () {
+                    return Excel::download(new MaizeReport, 'MaizeReport-'.time().'.xlsx');
+                }),
         ];
     }
 }

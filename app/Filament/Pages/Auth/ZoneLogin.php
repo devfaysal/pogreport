@@ -2,7 +2,6 @@
 
 namespace App\Filament\Pages\Auth;
 
-use App\Models\Guardian;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Auth\Login as BasePage;
@@ -22,14 +21,15 @@ class ZoneLogin extends BasePage
             'password' => $data['password'],
         ];
     }
+
     protected function getEmailFormComponent(): Component
     {
         return TextInput::make('phone')
-        ->label('Phone Number')
-        ->required()
-        ->autocomplete()
-        ->autofocus()
-        ->extraInputAttributes(['tabindex' => 1]);
+            ->label('Phone Number')
+            ->required()
+            ->autocomplete()
+            ->autofocus()
+            ->extraInputAttributes(['tabindex' => 1]);
     }
 
     protected function throwFailureValidationException(): never

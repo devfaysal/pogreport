@@ -30,9 +30,9 @@ class AssignProductToRegion extends Command
         $regions = Region::get();
         $products = Product::get();
 
-        foreach($regions as $region){
-            foreach($products as $product){
-                $region->products()->attach($product->id,['type' => $product->type]);
+        foreach ($regions as $region) {
+            foreach ($products as $product) {
+                $region->products()->attach($product->id, ['type' => $product->type]);
             }
         }
     }

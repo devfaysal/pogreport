@@ -4,7 +4,6 @@ namespace App\Filament\Resources\RegionResource\Pages;
 
 use App\Filament\Resources\RegionResource;
 use App\Models\Product;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateRegion extends CreateRecord
