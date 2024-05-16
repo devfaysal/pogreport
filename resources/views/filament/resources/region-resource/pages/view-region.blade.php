@@ -1,5 +1,6 @@
 <x-filament-panels::page>
     <div>
+        <p class="pb-4 font-bold">Total: {{ $region->products->sum('pivot.budget') }} kg</p>
         <x-filament::button href="/admin/regions" tag="a" class="mb-2">
             Back
         </x-filament::button>
