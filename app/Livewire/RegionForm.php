@@ -47,7 +47,7 @@ class RegionForm extends Component
     public function updateProduct()
     {
         $data = [];
-        if ($this->budget > 0) {
+        if ($this->budget >= 0) {
             $this->budget_log[] = ['added' => now(), 'amount' => $this->budget];
             $data['budget'] = $this->budget;
             $data['budget_log'] = json_encode($this->budget_log);
