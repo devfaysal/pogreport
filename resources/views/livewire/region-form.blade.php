@@ -23,6 +23,7 @@
                     wire:model="placement"
                     class="text-xs"
                     required
+                    readonly
                 />
             </x-filament::input.wrapper>
         </td>
@@ -33,6 +34,7 @@
                     wire:model="pog"
                     class="text-xs"
                     required
+                    readonly
                 />
             </x-filament::input.wrapper>
         </td>
