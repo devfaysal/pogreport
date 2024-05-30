@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Filament\Zone\Resources\RegionResource;
 use App\Models\Region;
 use App\Models\User;
 use Filament\Notifications\Notification;
@@ -86,5 +87,11 @@ class ProductForm extends Component
         }
         $this->add_placement = null;
         $this->add_pog = null;
+    }
+
+    public function viewLog()
+    {
+        // dd(RegionResource::getUrl('logs', ['record' => $this->region->id, 'product' => $this->product->id]));
+        return redirect(RegionResource::getUrl('logs',['record' => $this->region->id,'product' => $this->product->id]));
     }
 }

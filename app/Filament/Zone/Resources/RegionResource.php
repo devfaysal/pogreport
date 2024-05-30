@@ -70,6 +70,7 @@ class RegionResource extends Resource
             'index' => Pages\ListRegions::route('/'),
             'create' => Pages\CreateRegion::route('/create'),
             'view' => Pages\Products::route('/{record}'),
+            'logs' => Pages\ViewLog::route('/{record}/product-region/{product}/logs'),
             // 'edit' => Pages\EditRegion::route('/{record}/edit'),
         ];
     }

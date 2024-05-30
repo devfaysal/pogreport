@@ -28,7 +28,8 @@
                 <p class="font-bold text-sm">Placement <span class="text-xs font-normal">(kg)</span></p>
                 <div class="flex items-center">
                     <p class="text-sm">{{ $placement }}</p>
-                    <x-filament::modal>
+                    <x-filament::icon-button type="button" wire:click="viewLog" icon="heroicon-m-circle-stack" size="xs"/>
+                    {{-- <x-filament::modal>
                         <x-slot name="trigger">
                             <x-filament::icon-button icon="heroicon-m-circle-stack" size="xs"/>
                         </x-slot>
@@ -36,19 +37,23 @@
                             @forelse ($placement_log as $log)
                                 <li>
                                     {{ $log['amount'] }}kg added {{ \Carbon\Carbon::parse($log['added'])->diffForHumans() }}
+                                    @if( \Carbon\Carbon::parse($log['added'])->addMinutes(10) > now() )
+                                    <button type="button" wire:click="viewLog">Edit</button>
+                                    @endif
                                 </li>
                             @empty
                                 <li>No logs found</li>
                             @endforelse
                         </ul>
-                    </x-filament::modal>
+                    </x-filament::modal> --}}
                 </div>
             </div>
             <div class="px-1.5 py-2 border rounded-xl">
                 <p class="font-bold text-sm">POG <span class="text-xs font-normal">(kg)</span></p>
                 <div class="flex items-center">
                    <p class="text-sm">{{ $pog }}</p>
-                    <x-filament::modal>
+                   <x-filament::icon-button type="button" wire:click="viewLog" icon="heroicon-m-circle-stack" size="xs"/>
+                    {{-- <x-filament::modal>
                         <x-slot name="trigger">
                             <x-filament::icon-button icon="heroicon-m-circle-stack" size="xs"/>
                         </x-slot>
@@ -61,7 +66,7 @@
                                 <li>No logs found</li>
                             @endforelse
                         </ul>
-                    </x-filament::modal>
+                    </x-filament::modal> --}}
                 </div>
             </div>
         </div>
