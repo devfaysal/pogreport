@@ -32,7 +32,7 @@
             </tr>
             @endforelse
         </table> 
-        @if($updateable_placement_key)
+        {{-- @if($updateable_placement_key)
             <form class="mt-3" wire:submit="updatePlacementLog">
                 <div class="flex">
                     <x-filament::input.wrapper class="mb-2">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </form>
-        @endif
+        @endif --}}
     </div>
     <div>
         <h2 class="text-xl">Pog</h2>
@@ -81,7 +81,7 @@
                 </tr>
             @endforelse
         </table>
-        @if($updateable_pog_key)
+        {{-- @if($updateable_pog_key)
             <form class="mt-3" wire:submit="updatePogLog">
                 <div class="flex">
                     <x-filament::input.wrapper class="mb-2">
@@ -100,6 +100,6 @@
                     </div>
                 </div>
             </form>
-        @endif
+        @endif --}}
     </div>
 </x-filament-panels::page>

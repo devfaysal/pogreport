@@ -52,8 +52,8 @@ class RegionForm extends Component
             $data['budget'] = $this->budget;
             $data['budget_log'] = json_encode($this->budget_log);
         }
-        // $data['placement'] = $this->placement;
-        // $data['pog'] = $this->pog;
+        $data['placement'] = $this->placement;
+        $data['pog'] = $this->pog;
         if (! empty($data)) {
             $this->region->products()->updateExistingPivot($this->id, $data);
             Notification::make()
