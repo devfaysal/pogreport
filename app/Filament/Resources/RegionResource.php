@@ -35,13 +35,13 @@ class RegionResource extends Resource
             ->columns([
                 TextColumn::make('name')->searchable(),
                 TextColumn::make('phone'),
-                TextColumn::make('Budget')->getStateUsing(function($record){
+                TextColumn::make('Budget')->getStateUsing(function ($record) {
                     return $record->products->sum('pivot.budget');
                 }),
-                TextColumn::make('Placement')->getStateUsing(function($record){
+                TextColumn::make('Placement')->getStateUsing(function ($record) {
                     return $record->products->sum('pivot.placement');
                 }),
-                TextColumn::make('Pog')->getStateUsing(function($record){
+                TextColumn::make('Pog')->getStateUsing(function ($record) {
                     return $record->products->sum('pivot.pog');
                 }),
                 TextColumn::make('phone'),

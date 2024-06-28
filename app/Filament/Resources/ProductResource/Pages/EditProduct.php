@@ -15,13 +15,13 @@ class EditProduct extends EditRecord
     {
         return [
             Actions\DeleteAction::make()
-            ->after(function(){
-                $regions = Region::get();
-                $product = $this->record;
-                foreach ($regions as $region) {
-                    $region->products()->detach($product->id, ['type' => $product->type]);
-                }
-            }),
+                ->after(function () {
+                    $regions = Region::get();
+                    $product = $this->record;
+                    foreach ($regions as $region) {
+                        $region->products()->detach($product->id, ['type' => $product->type]);
+                    }
+                }),
         ];
     }
 }

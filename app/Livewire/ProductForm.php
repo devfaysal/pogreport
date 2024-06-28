@@ -92,6 +92,6 @@ class ProductForm extends Component
     public function viewLog()
     {
         // dd(RegionResource::getUrl('logs', ['record' => $this->region->id, 'product' => $this->product->id]));
-        return redirect(RegionResource::getUrl('logs',['record' => $this->region->id,'product' => $this->product->id]));
+        return redirect(RegionResource::getUrl('logs', ['record' => $this->region->id, 'product' => $this->product->id]));
     }
 }

@@ -17,14 +17,23 @@ class ViewLog extends Page
     protected static string $view = 'filament.zone.resources.region-resource.pages.view-log';
 
     public $region;
+
     public $product;
+
     public $id;
+
     public $budget_log;
+
     public $placement_log;
+
     public $updateable_placement_amount;
+
     public $updateable_placement_key;
+
     public $pog_log;
+
     public $updateable_pog_amount;
+
     public $updateable_pog_key;
 
     public function mount(Region $record, Product $product)
@@ -36,19 +45,19 @@ class ViewLog extends Page
         $this->budget_log = $data->budget_log ? json_decode($data->budget_log, true) : [];
         $this->placement_log = $data->placement_log ? json_decode($data->placement_log, true) : [];
         $this->pog_log = $data->pog_log ? json_decode($data->pog_log, true) : [];
-        if($data->placement_log){
+        if ($data->placement_log) {
             $placement_log = json_decode($data->placement_log, true);
-            foreach($placement_log as $key => $log){
-                if(isset($log['added']) && \Carbon\Carbon::parse($log['added'])->addHours(24) > now()){
+            foreach ($placement_log as $key => $log) {
+                if (isset($log['added']) && \Carbon\Carbon::parse($log['added'])->addHours(24) > now()) {
                     $this->updateable_placement_amount = $log['amount'];
                     $this->updateable_placement_key = $key;
                 }
             }
         }
-        if($data->pog_log){
+        if ($data->pog_log) {
             $pog_log = json_decode($data->pog_log, true);
-            foreach($pog_log as $key => $log){
-                if(isset($log['added']) && \Carbon\Carbon::parse($log['added'])->addHours(24) > now()){
+            foreach ($pog_log as $key => $log) {
+                if (isset($log['added']) && \Carbon\Carbon::parse($log['added'])->addHours(24) > now()) {
                     $this->updateable_pog_amount = $log['amount'];
                     $this->updateable_pog_key = $key;
                 }
@@ -56,9 +65,9 @@ class ViewLog extends Page
         }
     }
 
-    public function getTitle(): string | Htmlable
+    public function getTitle(): string|Htmlable
     {
-        return $this->region->name . ' - ' . $this->product->name;
+        return $this->region->name.' - '.$this->product->name;
     }
 
     public function updatePlacementLog()
@@ -66,7 +75,7 @@ class ViewLog extends Page
         $this->placement_log[$this->updateable_placement_key]['amount'] = $this->updateable_placement_amount;
         $this->placement_log[$this->updateable_placement_key]['updated'] = now();
         $placement = 0;
-        foreach($this->placement_log as $log){
+        foreach ($this->placement_log as $log) {
             $placement += $log['amount'];
         }
         $data['placement'] = $placement;
@@ -78,6 +87,7 @@ class ViewLog extends Page
             ->title('Updated successfully')
             ->success()
             ->send();
+
         return redirect(RegionResource::getUrl('view', [$this->region]));
     }
 
@@ -86,7 +96,7 @@ class ViewLog extends Page
         $this->pog_log[$this->updateable_pog_key]['amount'] = $this->updateable_pog_amount;
         $this->pog_log[$this->updateable_pog_key]['updated'] = now();
         $pog = 0;
-        foreach($this->pog_log as $log){
+        foreach ($this->pog_log as $log) {
             $pog += $log['amount'];
         }
         $data['pog'] = $pog;
@@ -98,6 +108,7 @@ class ViewLog extends Page
             ->title('Updated successfully')
             ->success()
             ->send();
+
         return redirect(RegionResource::getUrl('view', [$this->region]));
     }
 }
